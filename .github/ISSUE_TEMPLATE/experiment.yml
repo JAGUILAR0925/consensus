@@ -1,0 +1,36 @@
+name: Experimento
+description: Proponer una investigación o prueba técnica reproducible
+title: "[Experimento]: "
+labels: []
+body:
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hipótesis
+    validations:
+      required: true
+  - type: textarea
+    id: procedure
+    attributes:
+      label: Procedimiento
+      description: Pasos, entorno y datos ficticios.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Criterio de resultado
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia
+      description: Qué artefactos se conservarán.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Seguridad y privacidad
+      description: Confirma que no se usarán secretos ni datos reales.

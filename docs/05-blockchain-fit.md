@@ -1,62 +1,73 @@
-# 05. Justificación de blockchain
+# 05. Evaluación del uso de blockchain
 
-**Estado:** justificación provisional  
+**Estado:** definido  
 **Última revisión:** septiembre de 2026
 
-## Pregunta de decisión
+## Decisión de contexto
 
-¿Consensus necesita una blockchain o podría resolver el problema adecuadamente con una base de datos centralizada y un proceso de auditoría?
+Consensus utilizará Stellar porque el objetivo educativo incluye aprender a diseñar, integrar y evaluar una solución sobre esta red.
 
-## Criterios de evaluación
+Esta decisión no equivale a afirmar que blockchain sea la única o la mejor solución para todas las votaciones.
 
-| Criterio | Presencia en el caso piloto | Observación |
-| --- | --- | --- |
-| Varias partes que no confían plenamente entre sí necesitan el mismo registro. | Parcial | Comité, candidatos, votantes y observadores necesitan una versión común del proceso. Debe validarse el nivel real de desconfianza. |
-| El histórico no debe alterarse ni siquiera por quien administra. | Sí, como requisito propuesto | Reglas, apertura, cierre y conteo deberían dejar evidencia permanente. |
-| Existe un intermediario principalmente para concentrar la confianza. | Parcial | El comité seguirá siendo necesario para validar identidades, aunque no tendría que ser la única fuente del conteo. |
+## Criterios de adecuación
 
-## Comparación de alternativas
+| Criterio | Evaluación para el MVP |
+| --- | --- |
+| Varias partes necesitan consultar el mismo estado. | Sí: administrador, votantes, candidatos y observadores. |
+| El historial debe ser difícil de modificar unilateralmente. | Sí: reglas, estados y resultados requieren trazabilidad. |
+| La evidencia debe poder consultarse fuera de la aplicación oficial. | Sí: es uno de los objetivos educativos. |
+| Existe valor en ejecutar reglas compartidas. | Potencial: debe demostrarse con el prototipo. |
+| Los datos son apropiados para publicación. | Solo datos ficticios y no sensibles. |
+| El beneficio compensa la complejidad. | Debe evaluarse al finalizar el MVP. |
 
-| Criterio | Formulario convencional | Base central con auditoría | Stellar y contrato inteligente |
+## Comparación de enfoques
+
+| Aspecto | Sistema centralizado | Stellar sin contrato personalizado | Stellar con contrato inteligente |
 | --- | --- | --- | --- |
-| Facilidad inicial | Alta | Media | Media o baja |
-| Verificación pública | Limitada | Posible con acceso o publicación adicional | Nativa para los datos registrados |
-| Modificación unilateral | Posible por el operador | Mitigable con controles y auditoría | Restringida por las reglas del contrato |
-| Identidad del votante | Correo o sistema institucional | Sistema institucional | Sigue requiriendo un mecanismo externo de habilitación |
-| Privacidad | Controlada por el operador | Configurable | El MVP es seudónimo, no secreto |
-| Complejidad técnica | Baja | Media | Alta |
-| Costo del piloto | Bajo | Medio | Sin costo de red en Testnet, pero con mayor costo de desarrollo |
-| Continuidad sin la interfaz original | Baja | Depende del diseño | El estado puede consultarse desde otros clientes |
+| Desarrollo inicial | Más simple | Intermedio | Más complejo |
+| Reglas de negocio | Servidor o aplicación | Aplicación y operaciones nativas | Programa desplegado en la red |
+| Auditoría externa | Requiere exponer datos | Operaciones visibles | Estado y reglas invocables |
+| Prevención de doble voto | Base de datos | Diseño adicional | Regla programable |
+| Actualización | Controlada por operador | Aplicación cliente | Requiere estrategia de contrato |
+| Privacidad | Configurable | Los datos publicados son visibles | Los datos publicados son visibles |
+| Valor educativo | Arquitectura tradicional | Integración Stellar | Integración, autorización y contratos |
 
-## Aporte esperado
+## Aportes esperados de Stellar
 
-Blockchain podría aportar:
+- Registro compartido de operaciones.
+- Firmas y autorización.
+- Identificadores verificables.
+- Consulta independiente del historial.
+- Posibilidad de utilizar contratos inteligentes.
+- Entorno de pruebas sin activos reales.
 
-- Un registro compartido de las acciones relevantes.
-- Reglas ejecutadas de la misma forma para todos.
-- Evidencia de apertura, voto, cierre y conteo.
-- Menor dependencia de la base de datos del organizador.
-- Posibilidad de verificar el resultado con herramientas distintas a la interfaz oficial.
+## Límites
 
-## Lo que blockchain no resuelve
+Stellar o una blockchain no resuelven automáticamente:
 
-- Comprobar que una dirección corresponde a una persona autorizada.
-- Evitar que una persona entregue o venda su acceso.
-- Recuperar una clave perdida.
-- Garantizar voto secreto en el diseño inicial.
-- Evitar una mala configuración del administrador.
-- Hacer que la experiencia sea automáticamente sencilla.
-- Otorgar validez legal o institucional al resultado.
+- Identidad única por persona.
+- Voto secreto.
+- Coerción.
+- Malware en el dispositivo.
+- Pérdida de claves.
+- Mala configuración.
+- Accesibilidad.
+- Comprensión de la evidencia.
+- Validez legal.
 
-## Decisión provisional
+## Conclusión
 
-Se utilizará Stellar Testnet y un contrato inteligente para construir una **prueba funcional de verificabilidad**, no para afirmar que el sistema está listo para elecciones oficiales.
+Stellar está justificado como plataforma del proyecto educativo. La arquitectura concreta seguirá comparando dos alternativas:
 
-La decisión se revisará después de las entrevistas y del piloto. Si una base central auditada ofrece un resultado suficiente con menor fricción, el equipo deberá documentarlo honestamente.
+1. Solución basada principalmente en operaciones y datos de Stellar.
+2. Solución con contrato inteligente para ejecutar las reglas.
 
-## Fuentes técnicas oficiales
+La selección debe basarse en una prueba técnica, no en preferencia personal.
 
-- [Smart contracts en Stellar](https://developers.stellar.org/docs/build/smart-contracts/overview)
-- [Escribir, probar y desplegar un contrato en Rust](https://developers.stellar.org/docs/build/smart-contracts/getting-started/hello-world)
-- [Despliegue en Testnet](https://developers.stellar.org/docs/build/smart-contracts/getting-started/deploy-to-testnet)
-- [Redes de Stellar](https://developers.stellar.org/docs/networks)
+## Referencias
+
+- [National Academies — Securing the Vote](https://www.nationalacademies.org/read/25120/chapter/7)
+- [U.S. EAC — Voluntary Voting System Guidelines](https://www.eac.gov/voting-equipment/voluntary-voting-system-guidelines)
+- [Benaloh et al. — End-to-end verifiability](https://arxiv.org/abs/1504.03778)
+- [Stellar — Applications with and without smart contracts](https://developers.stellar.org/docs/build)
+- [Stellar — Smart contracts overview](https://developers.stellar.org/docs/build/smart-contracts/overview)

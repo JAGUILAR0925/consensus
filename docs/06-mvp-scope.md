@@ -1,77 +1,93 @@
 # 06. Alcance del MVP
 
-**Estado:** propuesta acotada  
+**Estado:** definido  
 **Última revisión:** septiembre de 2026  
-**Duración objetivo:** cinco semanas  
+**Horizonte:** cinco semanas  
 **Equipo:** cinco integrantes
 
-## Objetivo del MVP
+## Objetivo
 
-Demostrar que un grupo puede ejecutar una votación simulada y verificar sus reglas, votos y resultado mediante un contrato desplegado en Stellar Testnet.
+Construir un prototipo educativo que ejecute una elección simulada sobre Stellar y permita verificar sus operaciones y resultado.
 
-El MVP valida una capacidad, no constituye un producto electoral listo para producción.
+## Alcance funcional
 
-## Caso piloto
+| ID | Capacidad |
+| --- | --- |
+| MVP-001 | Crear un escenario de elección con título, opciones y estado inicial. |
+| MVP-002 | Registrar identificadores ficticios de participantes habilitados. |
+| MVP-003 | Abrir la elección después de validar su configuración. |
+| MVP-004 | Permitir que un participante autorizado emita un voto. |
+| MVP-005 | Rechazar un segundo voto del mismo participante. |
+| MVP-006 | Rechazar votos cuando la elección no está abierta. |
+| MVP-007 | Cerrar la elección de forma controlada. |
+| MVP-008 | Consultar conteo y estado. |
+| MVP-009 | Mostrar identificadores de evidencia en Stellar. |
+| MVP-010 | Ejecutar un conjunto reproducible de pruebas. |
+| MVP-011 | Documentar el despliegue y reinicio del escenario. |
+| MVP-012 | Comparar el resultado con una implementación centralizada conceptual. |
 
-Una elección simulada de representantes estudiantiles con:
+## Restricciones confirmadas
 
-- Una elección activa.
-- Máximo diez candidatos.
-- Entre diez y quince participantes durante el piloto.
-- Direcciones habilitadas previamente.
-- Una persona facilitadora que actúa como administradora.
+- Stellar es la red seleccionada.
+- TypeScript se utiliza en la aplicación y la integración.
+- El entorno inicial no utiliza activos reales.
+- Solo se emplean identidades y datos ficticios.
+- El sistema no garantiza voto secreto.
+- Solo se requiere una elección activa.
+- El MVP es educativo y no vinculante.
 
-## Dentro del alcance
+## Decisiones técnicas no incluidas todavía
 
-| ID | Capacidad | Criterio resumido |
-| --- | --- | --- |
-| MVP-001 | Configurar elección | El administrador registra candidatos y votantes antes de abrir. |
-| MVP-002 | Controlar estados | La elección pasa de Configuración a Abierta y luego a Cerrada. |
-| MVP-003 | Conectar billetera | El usuario conecta Freighter en Stellar Testnet. |
-| MVP-004 | Autorizar voto | Solo una dirección habilitada puede firmar su voto. |
-| MVP-005 | Evitar duplicados | Un segundo voto de la misma dirección es rechazado. |
-| MVP-006 | Consultar resultado | Cualquier visitante consulta el conteo sin autenticarse. |
-| MVP-007 | Mostrar evidencia | La interfaz enlaza o identifica las transacciones relevantes. |
-| MVP-008 | Administrar lo mínimo | Existe una interfaz mínima o, si el tiempo no alcanza, un flujo documentado con Stellar CLI. |
-| MVP-009 | Probar reglas | Las restricciones críticas tienen pruebas automatizadas. |
-| MVP-010 | Ejecutar piloto | Se recopilan métricas y retroalimentación sin datos sensibles. |
+El alcance no obliga a elegir:
+
+- Rust.
+- Un framework frontend específico.
+- Una billetera específica.
+- Un backend.
+- Una base de datos.
+- Un servicio de hosting.
+- Un explorador de red específico.
+
+Estas decisiones están controladas en [13-decision-log.md](13-decision-log.md).
 
 ## Fuera del alcance
 
-- Elecciones oficiales o jurídicamente vinculantes.
-- Voto secreto.
+- Elecciones oficiales.
+- Identidad institucional real.
 - Mainnet.
-- Integración con sistemas universitarios.
-- Aplicación móvil.
-- Múltiples elecciones simultáneas.
-- Recuperación de cuentas o custodia de claves.
-- Encriptación homomórfica o pruebas de conocimiento cero.
-- Gobernanza multifirma.
-- Backend propio como fuente de verdad.
-- Analítica avanzada.
+- Voto secreto o resistente a coerción.
+- Aplicaciones móviles nativas.
+- Múltiples organizaciones.
+- Recuperación de cuentas.
+- Escalabilidad masiva.
+- Integraciones gubernamentales.
+- Auditoría de seguridad externa.
+- Cumplimiento normativo para producción.
 
-## Restricción de privacidad
+## Datos permitidos
 
-En el MVP, la dirección que firma puede quedar relacionada con su elección. No se deben usar nombres reales ni ejecutar una votación sensible. La demostración debe informar esta limitación antes de participar.
+- Nombres ficticios de candidatos.
+- Direcciones o cuentas creadas para Testnet.
+- Identificadores de transacciones de prueba.
+- Métricas técnicas sin datos personales.
 
-## Criterio de recorte
+## Datos prohibidos
 
-Si el equipo no dispone del tiempo esperado, se recorta en este orden:
-
-1. Panel visual de administración; se reemplaza por Stellar CLI.
-2. Actualización en tiempo real; se utiliza actualización manual.
-3. Elementos visuales no esenciales.
-4. Métricas secundarias.
-
-Nunca se recortan las reglas de autorización, prevención de doble voto, control de estados, pruebas ni advertencias de privacidad.
+- Nombres o identificaciones reales.
+- Correos y teléfonos.
+- Información académica real.
+- Claves privadas.
+- Frases de recuperación.
+- Correspondencia entre una persona y una dirección.
+- Votos de procesos reales.
 
 ## Definición de terminado
 
-El MVP está terminado cuando:
+El MVP se considera completado cuando:
 
-- Un administrador configura, abre y cierra la elección.
-- Un votante habilitado vota una vez.
-- Los intentos inválidos son rechazados.
-- El resultado de la web coincide con el estado del contrato.
-- Existe evidencia reproducible en Testnet.
-- El piloto y sus aprendizajes están documentados.
+- Todos los requisitos prioritarios están implementados.
+- Las pruebas de aceptación PA-001 a PA-017 están aprobadas con evidencia; ninguna permanece fallida o bloqueada.
+- Existe un despliegue reproducible en la red de pruebas.
+- Un observador puede verificar el resultado siguiendo la documentación.
+- El equipo presenta limitaciones y amenazas sin ocultarlas.
+- La decisión de arquitectura está registrada con evidencia.

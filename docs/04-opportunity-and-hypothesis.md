@@ -1,42 +1,49 @@
 # 04. Oportunidad e hipótesis
 
-**Estado:** en validación  
+**Estado:** definido  
 **Última revisión:** septiembre de 2026
 
-## Oportunidad seleccionada
+## Oportunidad
 
-Permitir que los participantes comprueben el cumplimiento de las reglas y el resultado de una votación sin solicitar acceso especial al sistema administrado por el comité.
+Construir un laboratorio educativo donde reglas, operaciones y resultados de una votación simulada puedan inspeccionarse y reproducirse, permitiendo comparar un enfoque centralizado con uno apoyado en Stellar.
 
-## Hipótesis de cambio
+## Hipótesis principal
 
-**H-009:** si una votación ofrece evidencia comprensible e independiente de registro y conteo, entonces aumentará la confianza de votantes y candidatos en el resultado.
+**H-001:** registrar reglas y evidencia verificable en Stellar permite que un tercero compruebe aspectos esenciales del proceso sin acceder a una base de datos privada.
 
-## Propuesta de valor provisional
+## Hipótesis secundarias
 
-Para comunidades que necesitan tomar decisiones verificables, Consensus es una aplicación de votación que registra reglas y evidencia del conteo en una red compartida, de modo que participantes y observadores puedan comprobar el resultado sin depender exclusivamente de quien organiza el proceso.
-
-## Supuestos críticos
-
-| ID | Supuesto | Cómo podría invalidarse |
+| ID | Hipótesis | Evidencia requerida |
 | --- | --- | --- |
-| S-001 | La falta de verificación independiente es un problema relevante. | Las entrevistas muestran confianza suficiente en el proceso actual. |
-| S-002 | Los actores valoran la verificabilidad pública. | Prefieren privacidad y simplicidad aunque exista menor auditabilidad. |
-| S-003 | Una billetera puede utilizarse con acompañamiento razonable. | La mayoría no logra completar el flujo o lo abandona. |
-| S-004 | Una dirección por votante es una aproximación aceptable para el piloto. | La suplantación o pérdida de acceso impide ejecutar el piloto. |
-| S-005 | El comité acepta publicar reglas y acciones administrativas. | Existen restricciones institucionales o de privacidad incompatibles. |
-| S-006 | La red y el contrato pueden producir evidencia comprensible. | Solo personas técnicas pueden verificarla. |
+| H-002 | TypeScript permite construir la integración necesaria con Stellar. | Prueba técnica que construya, firme, envíe y consulte operaciones. |
+| H-003 | El sistema puede impedir dos votos válidos del mismo participante. | Prueba automatizada y ejecución controlada. |
+| H-004 | El estado Cerrada impide nuevos votos. | Prueba automatizada y evidencia en red de pruebas. |
+| H-005 | Un observador puede reproducir el conteo. | Guía ejecutada por una persona distinta al autor. |
+| H-006 | La interfaz puede explicar la evidencia sin exigir conocimientos profundos de blockchain. | Prueba de comprensión con el equipo. |
+| H-007 | El enfoque elegido puede implementarse en cinco semanas por cinco integrantes. | Seguimiento de hitos y alcance. |
 
-## Resultado esperado del piloto
+## Supuestos de diseño
 
-El piloto debe permitir responder:
+| ID | Supuesto | Tratamiento |
+| --- | --- | --- |
+| S-001 | El piloto usa identidades y datos ficticios. | Obligatorio. |
+| S-002 | Solo existe una elección activa en el MVP. | Limita complejidad. |
+| S-003 | El voto no es secreto en la primera versión. | Se informa antes de usar. |
+| S-004 | La red de pruebas puede reiniciarse. | El despliegue debe ser reproducible. |
+| S-005 | El equipo conoce TypeScript, pero no ha elegido framework. | La lógica de integración debe ser independiente del framework. |
+| S-006 | La tecnología de reglas on-chain sigue en evaluación. | Se resuelve mediante una prueba comparativa. |
 
-- ¿Los usuarios completan el voto?
-- ¿Entienden qué significa verificarlo?
-- ¿Confían más en el resultado?
-- ¿Qué fricción introduce la billetera?
-- ¿Qué información no debería ser pública?
-- ¿Blockchain mejora realmente el proceso frente a una alternativa centralizada auditada?
+## Criterio de éxito educativo
 
-## Criterio para continuar
+El proyecto es exitoso si el equipo puede:
 
-La solución avanza si la validación confirma el problema y si el beneficio de verificabilidad compensa la complejidad adicional. Si no ocurre, el equipo debe reducir el alcance, cambiar el mecanismo o abandonar el uso de blockchain.
+- Explicar el modelo de confianza.
+- Ejecutar el flujo de extremo a extremo.
+- Mostrar evidencia verificable.
+- Reproducir las pruebas.
+- Identificar con precisión qué propiedades no están garantizadas.
+- Justificar cada decisión tecnológica.
+
+## Criterio de fracaso útil
+
+También se considera aprendizaje válido demostrar que una alternativa más simple resuelve mejor una parte del problema. El objetivo educativo no obliga a presentar blockchain como superior cuando la evidencia no lo sostiene.

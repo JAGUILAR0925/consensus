@@ -1,83 +1,99 @@
-# 07. Plan de validación
+# 07. Plan de investigación y evaluación
 
-**Estado:** pendiente de ejecución  
+**Estado:** protocolo definido  
 **Última revisión:** septiembre de 2026
 
-## Objetivo
+## Enfoque
 
-Validar primero el problema y después la solución. Una demostración técnica exitosa no demuestra que el producto sea necesario o usable.
+El proyecto no utilizará entrevistas inventadas. La fase de definición se apoya en:
 
-## Fase 1: entrevistas de problema
+1. Investigación documental.
+2. Escenarios sintéticos.
+3. Experimentos técnicos reproducibles.
+4. Evaluaciones internas controladas.
+5. Evidencia generada por el sistema durante la implementación.
 
-### Muestra mínima
+## Trabajo completado
 
-- Cinco estudiantes.
-- Un candidato o excandidato.
-- Una persona que haya organizado o acompañado una elección.
+- Revisión de estándares y literatura sobre integridad y verificabilidad.
+- Identificación de amenazas de sistemas electrónicos.
+- Modelado de cinco actores sintéticos.
+- Creación de un flujo centralizado de referencia.
+- Delimitación de propiedades que blockchain no resuelve.
+- Definición de hipótesis y pruebas necesarias.
 
-### Preguntas orientadoras
+## Evaluaciones a ejecutar
 
-Las entrevistas deben explorar experiencias pasadas, no vender la solución.
+### EXP-001 — Integración básica con Stellar
 
-- Cuéntame cómo fue la última votación en la que participaste.
-- ¿Cómo supiste que tu voto había sido recibido?
-- ¿Cómo se comunicó el resultado?
-- ¿Tuviste alguna duda sobre el conteo?
-- ¿Qué hiciste o qué habrías hecho para resolverla?
-- ¿Qué información necesitarías para confiar en el resultado?
-- ¿Qué información de tu voto consideras privada?
-- ¿Has usado alguna vez una billetera digital?
+**Objetivo:** demostrar que TypeScript puede construir, firmar, enviar y consultar una operación de prueba.
 
-### Evitar
+**Resultado esperado:** identificador verificable y script reproducible.
 
-- “¿Usarías una app con blockchain?”
-- “¿Te parece buena esta idea?”
-- Explicar la solución antes de entender la experiencia.
-- Registrar nombres, documentos o información innecesaria.
+### EXP-002 — Comparación de arquitectura
 
-## Fase 2: prueba del prototipo
+**Objetivo:** comparar operaciones nativas contra contrato inteligente.
 
-Probar con al menos cinco personas:
+**Criterios:**
 
-- Comprensión de las instrucciones.
-- Conexión de la billetera.
-- Selección y firma.
-- Confirmación del registro.
-- Interpretación del resultado y su evidencia.
+- Capacidad de expresar reglas.
+- Pruebas.
+- Seguridad.
+- Complejidad.
+- Tiempo de aprendizaje.
+- Integración con TypeScript.
+- Mantenimiento.
 
-## Fase 3: piloto
+### EXP-003 — Reglas de votación
 
-Ejecutar una votación simulada con diez a quince participantes.
+**Objetivo:** demostrar autorización, unicidad y control de estados.
 
-### Métricas
+**Resultado esperado:** pruebas automatizadas y evidencia en Testnet.
 
-| Métrica | Cómo se calcula |
+### EXP-004 — Verificación independiente
+
+**Objetivo:** que un integrante distinto al autor reproduzca el resultado.
+
+**Resultado esperado:** registro de pasos, tiempo, problemas y conclusión.
+
+### EXP-005 — Comprensión de interfaz
+
+**Objetivo:** evaluar si los cinco integrantes interpretan correctamente estado, confirmación y evidencia.
+
+**Resultado esperado:** lista de ajustes de contenido y experiencia.
+
+## Métricas
+
+| Métrica | Cálculo |
 | --- | --- |
-| Finalización sin ayuda | Participantes que completan el voto sin asistencia / participantes que lo intentan. |
-| Tiempo de voto | Tiempo desde abrir la aplicación hasta confirmar la transacción. |
-| Abandono | Intentos que no llegan a confirmación / intentos iniciados. |
-| Errores por paso | Cantidad de errores en conexión, firma, envío o confirmación. |
-| Comprensión | Participantes que explican correctamente qué pudieron verificar. |
-| Cambio de confianza | Diferencia entre una pregunta breve antes y después del piloto. |
+| Cobertura de aceptación | Pruebas aprobadas / pruebas definidas |
+| Reproducibilidad | Ejecuciones exitosas por una segunda persona |
+| Tiempo de verificación | Minutos necesarios para reproducir un resultado |
+| Errores de integración | Fallos por firma, envío, simulación o consulta |
+| Comprensión | Respuestas correctas sobre qué demuestra la evidencia |
+| Cumplimiento documental | Artefactos actualizados / artefactos afectados |
 
-No se fijan metas numéricas hasta obtener una línea base.
+## Evidencia
 
-## Registro de evidencia
+Cada experimento genera un registro con:
 
-Cada hallazgo debe utilizar la [plantilla de validación](templates/validation-record.md) y asignar un identificador `EV-###`.
-
-La evidencia debe incluir:
-
+- ID.
 - Fecha.
-- Método.
-- Perfil anonimizado.
-- Observación literal o resultado medido.
-- Hipótesis relacionada.
-- Interpretación del equipo.
-- Decisión o siguiente experimento.
+- Versión o commit.
+- Responsable.
+- Entorno.
+- Datos ficticios utilizados.
+- Pasos.
+- Resultado.
+- Evidencia.
+- Limitaciones.
+- Decisión derivada.
 
-## Criterios de decisión
+Se utiliza [templates/validation-record.md](templates/validation-record.md).
 
-- **Continuar:** el problema aparece de manera consistente y la solución mejora verificabilidad sin una fricción desproporcionada.
-- **Ajustar:** el problema existe, pero billetera, privacidad o comprensión bloquean el flujo.
-- **Detener o pivotar:** el problema no es relevante o una alternativa centralizada auditada lo resuelve mejor.
+## Interpretación responsable
+
+- Un experimento exitoso demuestra únicamente su criterio.
+- Una transacción confirmada no demuestra privacidad.
+- Un doble voto rechazado no demuestra identidad única.
+- Un resultado reproducible no convierte el MVP en sistema electoral real.

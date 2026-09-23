@@ -1,98 +1,136 @@
 # 08. Enfoque técnico
 
-**Estado:** propuesta provisional  
+**Estado:** restricciones confirmadas; arquitectura en evaluación  
 **Última revisión:** septiembre de 2026
 
-## Objetivo técnico
+## Tecnologías confirmadas
 
-Construir la prueba funcional más pequeña que permita validar las reglas de una votación y su verificabilidad en Stellar Testnet.
+| Área | Decisión |
+| --- | --- |
+| Red | Stellar |
+| Lenguaje de aplicación e integración | TypeScript |
+| Entorno inicial | Testnet o entorno equivalente de pruebas |
+| Datos | Exclusivamente ficticios |
+| Repositorio | Repositorio público |
 
-## Componentes propuestos
+## Arquitectura lógica
 
-| Componente | Tecnología propuesta | Responsabilidad |
-| --- | --- | --- |
-| Contrato inteligente | Soroban con Rust | Estados, autorización, elegibilidad, prevención de doble voto y conteo. |
-| Red | Stellar Testnet | Ejecución y evidencia pública para el piloto. |
-| Herramientas | Stellar CLI | Compilación, despliegue, invocación y operación administrativa de respaldo. |
-| Aplicación web | React, Vite y TypeScript | Flujos de administrador, votante, resultados y mensajes de error. |
-| Cliente | SDK oficial de Stellar y bindings del contrato | Simulación, construcción y envío de transacciones. |
-| Billetera | Freighter | Firma y autorización del usuario. |
-| Consulta externa | Explorador compatible con Stellar | Comprobación independiente de transacciones. |
-| Publicación | Hosting estático | Acceso al piloto. |
+La solución se divide en responsabilidades, independientemente del framework:
 
-## Decisión de arquitectura inicial
+1. **Interfaz:** presenta configuración, votación, estado y resultados.
+2. **Aplicación TypeScript:** coordina casos de uso.
+3. **Adaptador Stellar:** construye, firma, envía y consulta operaciones.
+4. **Reglas de votación:** aplica autorización, unicidad y estados.
+5. **Verificación:** obtiene evidencia sin depender de la vista principal.
+6. **Pruebas:** valida reglas y flujos.
+7. **Despliegue:** reproduce cuentas, configuración y datos de prueba.
 
-No se propone un backend propio para el MVP. El contrato será la fuente de verdad y la aplicación web leerá el estado y enviará transacciones.
+## Decisión abierta principal — OPEN-001
 
-Esta decisión reduce alcance, pero deberá revisarse si aparecen necesidades off-chain como invitaciones, notificaciones, contenido extenso o integración de identidad.
+### ¿Dónde se ejecutarán las reglas?
 
-## Responsabilidades del contrato
+#### Opción A: contrato inteligente
 
-| Operación | Actor autorizado | Regla |
-| --- | --- | --- |
-| Inicializar | Despliegue | Se ejecuta una sola vez y define al administrador. |
-| Registrar candidato | Administrador | Solo durante Configuración. |
-| Habilitar dirección | Administrador | Solo durante Configuración. |
-| Abrir elección | Administrador | Transición de Configuración a Abierta. |
-| Cerrar elección | Administrador | Transición de Abierta a Cerrada. |
-| Votar | Votante | Requiere firma, habilitación, elección abierta, candidato válido y no haber votado. |
-| Consultar | Cualquiera | Lectura de estado, conteo y participación registrada. |
+Ventajas:
 
-Los nombres definitivos de las funciones se decidirán al implementar y probar el contrato.
+- Reglas compartidas y ejecutadas en la red.
+- Estado consultable.
+- Pruebas específicas del contrato.
+- Mejor demostración del modelo descentralizado.
 
-## Datos on-chain
+Consideraciones:
 
-- Estado de la elección.
-- Candidatos o identificadores compactos.
-- Direcciones habilitadas para el piloto.
-- Marca de participación por dirección.
-- Conteo.
-- Eventos o referencias necesarias para auditoría.
+- La documentación oficial de Stellar indica que actualmente Rust es el lenguaje soportado oficialmente para contratos.
+- TypeScript seguiría utilizándose como cliente e integración.
+- Introduce una curva adicional de aprendizaje.
 
-## Datos que no deben publicarse
+#### Opción B: operaciones nativas y lógica TypeScript
 
-- Nombre del estudiante.
-- Documento o código institucional.
-- Correo, teléfono o información académica.
-- Clave privada o frase de recuperación.
-- Correspondencia entre identidad real y dirección.
-- Respuestas de entrevistas sin anonimizar.
+Ventajas:
+
+- Menor cantidad de tecnologías.
+- Aprendizaje inicial más accesible.
+- Permite demostrar firmas, transacciones e historial.
+
+Consideraciones:
+
+- Parte de las reglas se ejecutaría fuera de la red.
+- La prevención de doble voto y el conteo requieren un diseño distinto.
+- Puede ofrecer menor valor para el objetivo de reglas verificables.
+
+## Lenguaje de contrato
+
+Rust **no está seleccionado todavía**.
+
+Si el equipo decide construir un contrato, debe considerar que:
+
+- El SDK de contratos mantenido oficialmente por Stellar es Rust.
+- Existe un SDK comunitario en AssemblyScript.
+- TypeScript cuenta con SDK oficial para interactuar con la red y con contratos, pero no es el lenguaje oficial para escribirlos.
+
+La prueba EXP-002 resolverá esta decisión.
+
+## Frontend
+
+El framework permanece abierto. Criterios:
+
+- Compatibilidad con TypeScript.
+- Experiencia del equipo.
+- Integración con el SDK de Stellar.
+- Simplicidad de despliegue.
+- Pruebas.
+- Accesibilidad.
+- Tamaño del MVP.
+
+No se presupone React, Vue, Nuxt, Next ni otro framework.
+
+## Billetera y firma
+
+La estrategia permanece abierta:
+
+- Extensión de billetera.
+- Kit de billeteras.
+- Cuentas de prueba controladas.
+- Flujo asistido para demostración.
+
+La selección debe priorizar seguridad, reproducibilidad y claridad educativa.
+
+## Backend y almacenamiento off-chain
+
+No están confirmados. Solo se incorporarán si un requisito no puede resolverse razonablemente con la aplicación cliente y Stellar.
+
+## Estructura del repositorio
+
+La elección entre monorepo, workspace u otra organización permanece abierta y se resolverá después de seleccionar la arquitectura. La documentación no presupone una estructura de código.
+
+## Interfaces conceptuales TypeScript
+
+La implementación debe aislar Stellar detrás de contratos propios:
+
+- `ElectionRepository`
+- `WalletGateway`
+- `TransactionGateway`
+- `EvidenceReader`
+- `Clock`
+
+Esto evita acoplar los casos de uso al framework o proveedor de billetera.
 
 ## Seguridad mínima
 
-- Autorización explícita del administrador.
-- Autorización explícita del votante.
-- Transiciones de estado válidas.
-- Protección contra inicialización repetida.
-- Validación de candidatos.
-- Prevención de doble voto.
-- Pruebas para cada regla crítica.
-- Manejo documentado de expiración o archivo de datos del contrato.
-- Proceso reproducible después de un reinicio de Testnet.
+- Nunca almacenar claves privadas en el repositorio.
+- Separar cuentas administrativas y votantes.
+- Validar red y passphrase.
+- Verificar simulación y estado de transacción.
+- Prevenir repetición.
+- Registrar errores sin secretos.
+- Limitar datos publicados.
+- Hacer reproducible el entorno.
+- Revisar dependencias antes de incorporarlas.
 
-## Pruebas mínimas
+## Fuentes oficiales
 
-- Voto válido.
-- Doble voto rechazado.
-- Dirección no habilitada rechazada.
-- Voto fuera del estado Abierta rechazado.
-- Operación administrativa sin autorización rechazada.
-- Candidato inválido rechazado.
-- Transiciones de estado inválidas rechazadas.
-
-## Decisiones pendientes
-
-- Representación de candidatos y límites de almacenamiento.
-- Uso de eventos y nivel de detalle publicado.
-- Estrategia de duración de datos.
-- Experiencia para habilitar varias direcciones.
-- Herramienta externa de exploración.
-- Framework frontend definitivo.
-
-## Referencias oficiales
-
-- [Descripción de contratos inteligentes](https://developers.stellar.org/docs/build/smart-contracts/overview)
-- [Contrato Hello World y pruebas](https://developers.stellar.org/docs/build/smart-contracts/getting-started/hello-world)
-- [Despliegue en Testnet con Stellar CLI](https://developers.stellar.org/docs/build/smart-contracts/getting-started/deploy-to-testnet)
-- [Integración con Freighter](https://developers.stellar.org/docs/build/guides/freighter)
-- [Automatización tras reinicios de Testnet](https://developers.stellar.org/docs/build/guides/basics/automate-reset-data)
+- [Stellar SDKs](https://developers.stellar.org/docs/tools/sdks)
+- [Aplicaciones con y sin contratos](https://developers.stellar.org/docs/build)
+- [Smart contracts en Stellar](https://developers.stellar.org/docs/build/smart-contracts/overview)
+- [SDKs de contratos](https://developers.stellar.org/docs/tools/sdks/build-your-own)
+- [Guía frontend e integración TypeScript](https://developers.stellar.org/docs/build/guides/dapps/frontend-guide)

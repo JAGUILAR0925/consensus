@@ -1,0 +1,38 @@
+name: Decisión técnica
+description: Evaluar y registrar una decisión de arquitectura o tecnología
+title: "[Decisión]: "
+labels: []
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto
+      description: ¿Qué problema necesita una decisión?
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Opciones
+      description: Enumera alternativas reales.
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Criterios
+      description: Seguridad, tiempo, pruebas, mantenimiento, aprendizaje y compatibilidad.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia necesaria
+      description: Spike, benchmark, documentación o prueba requerida.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto
+      description: Requisitos, riesgos y documentos afectados.

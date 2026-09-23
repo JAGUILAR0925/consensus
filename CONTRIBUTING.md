@@ -1,76 +1,105 @@
 # Guía de contribución
 
-Gracias por contribuir a Consensus. En esta etapa buscamos que el trabajo del equipo sea visible, ordenado y fácil de revisar.
+Consensus es un proyecto educativo desarrollado con prácticas de ingeniería reproducibles. Cada contribución debe ser comprensible, revisable y trazable.
 
-## Flujo de trabajo
+## Flujo
 
-1. Elige o crea un issue que describa la tarea.
-2. Crea una rama desde `main`.
-3. Realiza cambios pequeños y enfocados.
-4. Escribe commits claros.
-5. Abre un pull request relacionado con el issue.
-6. Solicita al menos una revisión antes de integrar el cambio.
-7. Atiende los comentarios y mantén la conversación técnica dentro del pull request.
+1. Selecciona o crea un issue.
+2. Relaciona requisitos, pruebas o decisiones afectadas.
+3. Crea una rama desde `main`.
+4. Implementa un cambio acotado.
+5. Ejecuta las validaciones aplicables.
+6. Actualiza documentación y trazabilidad.
+7. Abre un pull request.
+8. Obtén al menos una revisión.
+9. Resuelve comentarios antes de fusionar.
 
-No hagas push directo a `main` salvo para una corrección administrativa acordada por el equipo.
+No se realizan cambios directos en `main`.
 
-## Nombres de ramas
+## Ramas
 
-Usa nombres cortos en minúsculas y separados por guiones:
-
-- `feature/nombre-de-la-funcionalidad`
-- `fix/nombre-del-error`
-- `docs/tema-documentado`
-- `chore/tarea-interna`
-- `research/tema-investigado`
-
-Ejemplo: `docs/definir-flujo-de-votacion`.
+- `feature/...`
+- `fix/...`
+- `docs/...`
+- `test/...`
+- `research/...`
+- `chore/...`
 
 ## Commits
 
-Utilizamos una versión sencilla de Conventional Commits:
+Se utiliza Conventional Commits:
 
-- `feat: ...` para una funcionalidad.
-- `fix: ...` para una corrección.
-- `docs: ...` para documentación.
-- `test: ...` para pruebas.
-- `refactor: ...` para una mejora interna sin cambiar el comportamiento.
-- `chore: ...` para mantenimiento.
-- `research: ...` para hallazgos o experimentos.
+- `feat:`
+- `fix:`
+- `docs:`
+- `test:`
+- `refactor:`
+- `chore:`
+- `research:`
 
-Procura que cada commit represente una unidad de trabajo comprensible.
+Cada commit representa una unidad coherente y debe poder atribuirse a su autor.
 
 ## Issues
 
-Antes de iniciar una tarea:
+Un issue debe incluir:
 
-- Comprueba que no exista un issue equivalente.
-- Describe el problema o resultado esperado.
-- Incluye criterios de aceptación verificables.
-- Indica dependencias o bloqueos conocidos.
-- Asigna la tarea a la persona que la realizará.
+- Problema o resultado.
+- Alcance.
+- Criterios de aceptación.
+- Identificadores relacionados.
+- Dependencias.
+- Responsable.
+- Riesgos conocidos.
+
+## Decisiones
+
+Una tecnología no se incorpora porque sea popular o conocida. Las decisiones que afecten arquitectura, seguridad, privacidad, Stellar, frontend, firma, almacenamiento o despliegue requieren:
+
+1. Issue de decisión.
+2. Opciones.
+3. Criterios.
+4. Evidencia o spike.
+5. ADR.
+6. Revisión del equipo.
+7. Actualización de `docs/13-decision-log.md`.
+
+## Investigación
+
+Las fuentes públicas deben indicar título, entidad, URL y fecha. Los ejemplos creados por el equipo se etiquetan como sintéticos. No se inventan entrevistas, usuarios ni resultados.
 
 ## Pull requests
 
-Un pull request debe:
+Todo PR debe:
 
-- Resolver una sola tarea o cambio relacionado.
-- Explicar qué cambia y por qué.
-- Enlazar el issue correspondiente con `Closes #número` cuando aplique.
+- Resolver un objetivo.
+- Enlazar su issue.
+- Identificar requisitos y pruebas afectadas.
 - Incluir instrucciones de validación.
-- Mantener fuera cambios no relacionados.
-- Estar actualizado con `main` antes de integrarse.
+- Adjuntar evidencia.
+- Actualizar documentación.
+- Mantener secretos y datos personales fuera del repositorio.
+- Estar actualizado con `main`.
 
-## Decisiones técnicas
+## Seguridad
 
-Las decisiones que afecten el alcance, la privacidad, el modelo on-chain/off-chain o las reglas de votación deben discutirse en un issue antes de implementarse. La conclusión debe quedar documentada en el repositorio.
+Está prohibido publicar:
+
+- Claves privadas.
+- Frases de recuperación.
+- Tokens.
+- Credenciales.
+- Datos personales.
+- Correspondencias entre personas reales y direcciones.
+- Votos reales.
 
 ## Definición de terminado
 
 Una tarea está terminada cuando:
 
-- Cumple sus criterios de aceptación.
-- Fue validada por quien la desarrolló.
-- Tiene documentación suficiente.
-- Recibió revisión de otra persona.
-- No incorpora información sensible ni secretos.
+- Cumple criterios.
+- Tiene pruebas.
+- Fue revisada.
+- Actualiza trazabilidad.
+- Documenta limitaciones.
+- No introduce secretos.
+- Puede reproducirse por otra persona.

@@ -1,46 +1,47 @@
-# 03. Recorrido actual y flujo de valor
+# 03. Flujo de valor
 
-**Estado:** hipótesis de recorrido  
+**Estado:** definido como modelo sintético  
 **Última revisión:** septiembre de 2026
 
-## Objetivo
+> Este flujo es un modelo creado por el equipo para analizar el problema. No describe una institución específica.
 
-Comprender cómo se realiza hoy una elección y localizar dónde se pierde valor. El recorrido deberá corregirse después de las entrevistas.
+## Flujo centralizado de referencia — SCN-006
 
-## Recorrido actual supuesto
+| Paso | Responsable | Acción | Evidencia disponible para terceros |
+| --- | --- | --- | --- |
+| 1. Configuración | Organizador | Define reglas, opciones y fechas. | Documento o interfaz controlada por el organizador. |
+| 2. Habilitación | Organizador | Registra quién puede participar. | Lista privada o acceso restringido. |
+| 3. Emisión | Votante | Envía su elección. | Confirmación del mismo sistema. |
+| 4. Almacenamiento | Plataforma | Guarda el voto. | Base de datos no accesible. |
+| 5. Conteo | Plataforma u organizador | Calcula totales. | Resultado publicado. |
+| 6. Revisión | Candidato u observador | Solicita explicaciones o evidencia. | Depende del acceso concedido. |
+| 7. Archivo | Organizador | Conserva el historial. | Copias internas o acta final. |
 
-| Paso | Actor principal | Acción | Registro controlado por | Fricción posible |
-| --- | --- | --- | --- | --- |
-| 1. Convocatoria | Comité | Publica reglas, fechas y candidatos. | Comité | Las reglas pueden estar dispersas o cambiar. |
-| 2. Habilitación | Comité | Define quién puede votar. | Comité o institución | El votante no puede auditar la lista completa. |
-| 3. Emisión | Votante | Marca o envía su elección. | Urna, formulario o sistema interno | No existe prueba independiente de inclusión. |
-| 4. Conteo | Comité o sistema | Totaliza los votos. | Comité o proveedor | Los demás actores dependen del operador. |
-| 5. Publicación | Comité | Comunica el resultado. | Comité | Se publica un total, pero no siempre su evidencia. |
-| 6. Reclamación | Votante o candidato | Solicita revisión. | Comité | Auditar puede ser lento o requerir acceso privilegiado. |
-| 7. Archivo | Institución | Conserva actas e historial. | Institución | El histórico puede quedar fragmentado o ser difícil de comprobar. |
+## Fricciones
 
-## Mapa del flujo de valor
+| ID | Fricción | Impacto |
+| --- | --- | --- |
+| FRC-001 | La confirmación y el conteo dependen del mismo sistema. | El usuario no tiene verificación independiente. |
+| FRC-002 | Las reglas pueden no estar vinculadas técnicamente al conteo. | Es difícil comprobar que se aplicaron de forma uniforme. |
+| FRC-003 | La evidencia puede no ser pública o reproducible. | La auditoría requiere permisos. |
+| FRC-004 | La identidad y el voto pueden almacenarse juntos. | Aumenta el riesgo de privacidad. |
+| FRC-005 | Los errores del cliente o dispositivo pueden pasar inadvertidos. | La cadena no garantiza que la intención se capture correctamente. |
 
-- **Actores:** votante, comité, candidato, observador e institución.
-- **Saltos:** la intención del votante pasa por el mecanismo de recepción, el operador, el conteo y la publicación.
-- **Costos:** operación, soporte, auditoría y atención de reclamaciones.
-- **Tiempo:** preparación, votación, conteo y resolución de dudas.
-- **Fricción principal propuesta:** el participante no puede verificar de forma independiente la inclusión y el conteo.
+## Flujo objetivo del MVP
 
-## Fricción seleccionada
+| Paso | Acción | Evidencia esperada |
+| --- | --- | --- |
+| 1. Configurar | Crear opciones, participantes y reglas del escenario. | Estado inicial verificable. |
+| 2. Revisar | Confirmar la configuración antes de abrir. | Resumen reproducible. |
+| 3. Abrir | Cambiar el estado de la elección. | Operación registrada en Stellar. |
+| 4. Autorizar | Comprobar que el participante está habilitado. | Regla ejecutada consistentemente. |
+| 5. Votar | Firmar y enviar una operación. | Identificador y resultado de la operación. |
+| 6. Cerrar | Impedir votos posteriores. | Cambio de estado verificable. |
+| 7. Contar | Consultar el resultado. | Estado o evidencia pública. |
+| 8. Auditar | Repetir consultas y pruebas. | Procedimiento documentado. |
 
-La confianza se concentra en la misma entidad que administra el proceso y comunica el resultado.
+## Valor transferido
 
-No se afirma que el comité sea deshonesto. Se afirma que el sistema ofrece pocas posibilidades de verificación externa.
+El proyecto traslada parte de la capacidad de verificación desde el operador hacia reglas y evidencia que otros actores pueden consultar.
 
-## Valor que podría cambiar de manos
-
-El valor central es la **capacidad de verificar**. La oportunidad consiste en mover esa capacidad desde una autoridad única hacia un registro compartido y consultable por todos los actores.
-
-## Evidencia requerida
-
-- Descripción real de al menos un proceso electoral.
-- Herramientas utilizadas actualmente.
-- Tiempo dedicado a conteo, auditoría y reclamaciones.
-- Ejemplos de dudas o inconsistencias.
-- Necesidades de privacidad y normativa aplicable.
+No elimina al administrador: la habilitación inicial y la preparación del escenario siguen requiriendo responsabilidades claramente asignadas.

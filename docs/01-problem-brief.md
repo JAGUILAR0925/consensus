@@ -1,61 +1,60 @@
 # 01. Problem brief
 
-**Estado:** en validación  
+**Estado:** definido  
 **Última revisión:** septiembre de 2026  
-**Caso inicial:** elección simulada de representantes estudiantiles
+**Caso de estudio:** elección simulada de representantes estudiantiles
 
-## Objetivo
+## Problema
 
-Definir el problema sin asumir que blockchain es la solución.
+En una votación digital centralizada, los participantes pueden depender de la misma entidad para habilitar votantes, recibir votos, calcular resultados y presentar evidencia. Cuando el sistema no ofrece mecanismos de verificación independientes, el resultado exige confianza en el operador y en su infraestructura.
 
-## Enunciado del problema
+Consensus estudia cómo proporcionar evidencia verificable sin afirmar que blockchain resuelve por sí sola todos los riesgos electorales.
 
-Un estudiante que participa en la elección de sus representantes no puede comprobar de manera independiente que su voto fue incluido correctamente ni que el resultado publicado coincide con el conteo real, porque el registro y la verificación dependen de la misma entidad que administra la elección.
+## Evidencia pública
 
-## Contexto
+- **SRC-001 — National Academies, _Securing the Vote_ (2018):** identifica riesgos de alteración, pérdida o reporte incorrecto de votos y evidencia electoral, además de ataques contra sistemas electrónicos.
+- **SRC-002 — U.S. Election Assistance Commission, VVSG 2.0:** evalúa sistemas de votación mediante requisitos de funcionalidad, accesibilidad y seguridad.
+- **SRC-003 — Benaloh et al., _End-to-end verifiability_ (2015):** explica que la verificabilidad de extremo a extremo permite comprobar elementos esenciales del resultado sin confiar únicamente en software, hardware o funcionarios.
+- **SRC-004 — Consejo de Europa, estándares de voto electrónico (2017):** establece principios para procesos electrónicos compatibles con elecciones democráticas.
+- **SRC-005 — Revisiones sistemáticas de votación blockchain:** identifican privacidad, autenticación, integridad, escalabilidad y verificabilidad como problemas simultáneos; blockchain no elimina estas tensiones.
 
-En procesos administrados mediante formularios, urnas o sistemas internos, el comité electoral controla normalmente:
+Las fuentes completas y su interpretación están en [research/01-desk-research.md](research/01-desk-research.md).
 
-- El registro de participantes.
-- La recepción de votos.
-- El conteo.
-- La publicación del resultado.
-- El historial del proceso.
+## Persona afectada
 
-La existencia de un administrador no demuestra manipulación. La dificultad es que participantes y candidatos deben confiar en él porque no cuentan con un mecanismo independiente de verificación.
+Para el caso de estudio, la persona principal es un estudiante habilitado que quiere:
 
-## Frontera del problema
+- Emitir un voto válido.
+- Saber que fue registrado.
+- Comprender el resultado.
+- No revelar información personal innecesaria.
+- No depender de conocimientos técnicos avanzados.
 
-Este proyecto estudia la **verificabilidad del proceso y del resultado**. No pretende resolver inicialmente:
+## Fricción seleccionada
 
-- La identidad institucional completa.
-- La participación política o el abstencionismo.
-- La calidad de los candidatos.
-- La compra o coerción del voto.
-- El voto secreto con garantías criptográficas avanzadas.
-- La validez jurídica de una elección oficial.
+El participante no dispone de evidencia independiente y comprensible para comprobar que el proceso siguió sus reglas y que el resultado corresponde a los votos aceptados.
 
-## Hipótesis por validar
+## Límites del problema
 
-- **H-001:** algunos estudiantes desconocen cómo se realiza el conteo.
-- **H-002:** la imposibilidad de verificar el voto reduce la confianza en el resultado.
-- **H-003:** candidatos u observadores necesitan auditar el conteo sin depender del comité.
-- **H-004:** el comité dedica tiempo a explicar el proceso o resolver reclamos relacionados con el resultado.
+Consensus no pretende resolver en el MVP:
 
-Estas afirmaciones todavía no son hechos.
+- Identidad legal o institucional.
+- Coerción o compra de votos.
+- Seguridad completa del dispositivo del usuario.
+- Recuperación de credenciales.
+- Validez jurídica.
+- Voto secreto criptográficamente robusto.
+- Disponibilidad nacional o gran escala.
 
-## Evidencia disponible
+## Pregunta de investigación
 
-No existe evidencia primaria documentada todavía. La propuesta inicial constituye un antecedente conceptual, no una validación del problema.
+¿Cómo puede un equipo construir sobre Stellar un prototipo educativo que permita registrar y verificar reglas y resultados de una votación simulada, manteniendo visibles sus limitaciones de privacidad, identidad y seguridad?
 
-## Preguntas abiertas
+## Resultado esperado
 
-- ¿Los estudiantes perciben realmente esta falta de verificabilidad como un problema?
-- ¿Con qué frecuencia aparecen dudas o reclamos?
-- ¿Qué información necesitaría cada actor para confiar?
-- ¿La privacidad pesa más que la verificabilidad pública?
-- ¿El uso de una billetera sería una barrera aceptable?
+Una implementación reproducible que:
 
-## Próximo paso
-
-Realizar y documentar entrevistas con estudiantes, candidatos y responsables de procesos electorales. Los resultados deben registrarse sin datos personales identificables.
+- Demuestre qué aporta un registro compartido.
+- Permita verificar las reglas principales.
+- Exponga claramente lo que no resuelve.
+- Produzca evidencia técnica revisable por terceros.

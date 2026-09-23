@@ -1,33 +1,43 @@
 ## Objetivo
 
-<!-- Explica brevemente qué resuelve este cambio y por qué es necesario. -->
+<!-- ¿Qué problema resuelve y por qué? -->
 
-## Issue relacionado
+## Issue
 
 Closes #
 
-## Cambios realizados
+## Trazabilidad
+
+- Requisitos: RF- / RNF-
+- Pruebas: PA-
+- Decisiones: DEC- / OPEN-
+- Riesgos: R-
+
+## Cambios
 
 - 
 
-## Cómo validarlo
+## Validación
 
 1. 
 2. 
 
-## Lista de verificación
-
-- [ ] El cambio se limita al objetivo del pull request.
-- [ ] Revisé mis propios cambios.
-- [ ] Añadí o actualicé la documentación necesaria.
-- [ ] No incluí secretos, credenciales ni datos personales.
-- [ ] El trabajo cumple los criterios de aceptación del issue.
-- [ ] Solicité la revisión de otra persona del equipo.
-
 ## Evidencia
 
-<!-- Agrega capturas, resultados de pruebas o enlaces cuando corresponda. -->
+<!-- Logs, resultados, identificadores de Testnet o capturas sin datos sensibles. -->
 
-## Observaciones
+## Lista de verificación
 
-<!-- Riesgos, decisiones pendientes o información útil para quien revisa. -->
+- [ ] El cambio está acotado.
+- [ ] Revisé mis cambios.
+- [ ] Ejecuté las pruebas aplicables.
+- [ ] Actualicé documentación y trazabilidad.
+- [ ] No añadí secretos ni datos personales.
+- [ ] No presento pruebas planificadas como ejecutadas.
+- [ ] No presento escenarios sintéticos como usuarios reales.
+- [ ] Documenté decisiones o dependencias nuevas.
+- [ ] Solicité revisión de otra persona.
+
+## Riesgos y limitaciones
+
+- 

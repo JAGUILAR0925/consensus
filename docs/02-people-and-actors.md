@@ -1,49 +1,101 @@
 # 02. Personas y actores
 
-**Estado:** borrador para validación  
+**Estado:** definido mediante escenarios sintéticos  
 **Última revisión:** septiembre de 2026
 
-## Persona principal
+> Los perfiles siguientes fueron creados por el equipo para diseñar y probar el MVP. No representan entrevistas ni personas reales.
 
-### Estudiante votante
+## Persona principal — SCN-001
 
-Es quien experimenta directamente la incertidumbre sobre el registro de su voto. Necesita participar de forma comprensible, confirmar que la operación fue aceptada y confiar en el resultado sin exponer información sensible.
+### Votante habilitado
 
-La persona principal debe validarse con entrevistas. “Los estudiantes” no se tratarán como un grupo homogéneo.
+**Objetivo:** participar una vez y comprobar que el sistema aceptó su voto.
 
-## Actores del proceso
+**Necesidades:**
 
-| Actor | Participación actual | Necesidad potencial | Riesgo o tensión |
-| --- | --- | --- | --- |
-| Estudiante votante | Emite el voto y consulta el resultado. | Confirmar que participó y entender el proceso. | Fricción por el uso de billeteras y exposición de su elección. |
-| Comité electoral | Define reglas, habilita votantes, abre, cierra y comunica. | Administrar con menos disputas y producir evidencia. | Conserva poder sobre la habilitación de identidades. |
-| Candidato | Compite y recibe el resultado. | Auditar el conteo sin permisos especiales. | Puede inferir información si el voto no es secreto. |
-| Observador o auditor | Revisa que el proceso cumpla sus reglas. | Acceder a evidencia independiente. | La información técnica puede ser difícil de interpretar. |
-| Institución o comunidad | Reconoce el proceso y sus resultados. | Tener un mecanismo reproducible y gobernable. | Responsabilidad legal y tratamiento de datos. |
+- Instrucciones comprensibles.
+- Confirmación inequívoca.
+- Protección de información personal.
+- Explicación simple de la evidencia en Stellar.
+- Mensajes útiles ante errores.
 
-## Distinción importante
+**Riesgos:**
 
-La persona principal sufre el problema. Los demás actores participan, administran, cobran, deciden o auditan, pero no deben confundirse automáticamente con el usuario principal.
+- No comprender una billetera o firma.
+- Confundir una transacción enviada con una confirmada.
+- Exponer su elección si el diseño no ofrece privacidad.
+- Perder acceso a sus credenciales.
 
-## Flujo de valor esperado por actor
+## Actor administrador — SCN-002
 
-- El votante recibe confirmación verificable.
-- El candidato obtiene capacidad de auditoría.
-- El comité obtiene trazabilidad y reduce la dependencia de su propia palabra.
-- El observador obtiene acceso público a las reglas y resultados.
-- La comunidad obtiene un historial que no puede modificarse unilateralmente.
+### Organizador de la elección
 
-## Hipótesis relacionadas
+**Objetivo:** configurar el proceso, habilitar participantes y controlar sus estados.
 
-- **H-005:** una prueba verificable de inclusión aumenta la confianza del votante.
-- **H-006:** el comité aceptaría que sus acciones administrativas fueran públicas.
-- **H-007:** candidatos y observadores pueden interpretar la evidencia con una interfaz adecuada.
-- **H-008:** la comunidad acepta un piloto no vinculante antes de una elección real.
+**Necesidades:**
 
-## Preguntas abiertas
+- Evitar configuraciones inválidas.
+- Revisar candidatos y elegibilidad antes de abrir.
+- Contar con evidencia de cada acción administrativa.
+- No poder alterar silenciosamente el resultado.
 
-- ¿Quién verifica la identidad y autoriza una dirección?
-- ¿Quién puede corregir un registro antes de abrir la elección?
-- ¿Qué ocurre si una persona pierde su acceso?
-- ¿Qué nivel de conocimiento técnico tienen los observadores?
-- ¿Quién responde por una configuración incorrecta?
+**Riesgos:**
+
+- Habilitar una dirección incorrecta.
+- Abrir antes de completar la configuración.
+- Perder la clave administrativa.
+- Concentrar demasiado poder.
+
+## Actor candidato — SCN-003
+
+### Persona incluida como opción
+
+**Objetivo:** consultar el resultado y verificar que el conteo cumple las reglas.
+
+**Necesidades:**
+
+- Resultado público.
+- Explicación de cómo se obtiene.
+- Evidencia que no dependa del panel administrativo.
+
+## Actor observador — SCN-004
+
+### Auditor técnico o miembro de la comunidad
+
+**Objetivo:** reproducir la verificación.
+
+**Necesidades:**
+
+- Identificadores públicos de red.
+- Reglas documentadas.
+- Código y pruebas accesibles.
+- Instrucciones de verificación independientes.
+
+## Actor facilitador — SCN-005
+
+### Integrante que acompaña el piloto educativo
+
+**Objetivo:** ayudar a completar el ejercicio sin intervenir en el resultado.
+
+**Necesidades:**
+
+- Guía de preparación.
+- Datos de prueba.
+- Protocolo para reiniciar el escenario.
+- Lista de limitaciones que debe explicar.
+
+## Matriz de responsabilidades
+
+| Acción | Votante | Administrador | Candidato | Observador | Facilitador |
+| --- | --- | --- | --- | --- | --- |
+| Consultar reglas | Sí | Sí | Sí | Sí | Sí |
+| Configurar elección | No | Sí | No | No | Apoya |
+| Habilitar participante | No | Sí | No | No | Prepara datos |
+| Emitir voto | Sí | No | No | No | No |
+| Consultar resultado | Sí | Sí | Sí | Sí | Sí |
+| Verificar evidencia | Opcional | Sí | Sí | Sí | Sí |
+| Modificar votos | No | No | No | No | No |
+
+## Fuente de los escenarios
+
+Los perfiles se derivan de funciones comunes en sistemas de votación verificable y de los requisitos de integridad, seguridad, accesibilidad y auditoría identificados en la investigación documental.

@@ -1,48 +1,83 @@
-# 09. Plan de entrega
+# 09. Plan de ejecución
 
-**Estado:** propuesta  
+**Estado:** definido  
 **Horizonte inicial:** cinco semanas  
 **Equipo:** cinco integrantes
 
-## Frentes de responsabilidad
+## Frentes
 
-| Frente | Responsabilidad principal |
+| Frente | Responsabilidad |
 | --- | --- |
-| Producto e investigación | Descubrimiento, entrevistas, definición del problema, alcance, métricas y priorización. |
-| Contratos inteligentes | Diseño del contrato Soroban, autorización, almacenamiento, pruebas y despliegue. |
-| Integración blockchain | Billetera, SDK, bindings, transacciones, lectura de estado y herramientas de despliegue. |
-| Frontend y experiencia | Interfaz de administración, votación, resultados, accesibilidad y manejo de errores. |
-| Calidad y documentación | Estrategia de pruebas, validación funcional, riesgos, evidencia, documentación y demostración. |
+| Producto e investigación | Alcance, evidencia, casos, requisitos y trazabilidad. |
+| Stellar e integración | Pruebas con la red, operaciones, SDK y herramientas. |
+| Frontend y experiencia | Interfaz, accesibilidad, estados y mensajes. |
+| Calidad y seguridad | Pruebas, amenazas, revisión y criterios de aceptación. |
+| Documentación y entrega | Guías, decisiones, despliegue y demostración. |
 
-Cada frente tiene una persona responsable, pero las decisiones críticas y las revisiones son compartidas. La asignación nominal se registrará cuando el equipo confirme responsables.
+Los frentes no fijan la tecnología pendiente. Cada integrante debe contribuir mediante commits y revisar trabajo de otra persona.
 
-## Cronograma
+## Semana 1 — Fundamentos y decisión técnica
 
-| Semana | Objetivo | Trabajo | Resultado verificable |
-| --- | --- | --- | --- |
-| 1. Descubrimiento | Confirmar el problema y el contexto de uso. | Entrevistas, actores, recorrido, fricción y prueba técnica inicial. | Problem brief respaldado por evidencia y prueba técnica desplegada en Testnet. |
-| 2. Diseño | Definir las reglas mínimas del MVP. | Alcance, flujos, criterios de aceptación, contrato v1 y pruebas unitarias. | Contrato desplegable, pruebas automatizadas y prototipo de interfaz. |
-| 3. Construcción | Completar el flujo de voto de extremo a extremo. | Integración de billetera, votación, lectura de estado y resultados. | Transacción de prueba reproducible y flujo funcional documentado. |
-| 4. Validación | Comprobar que personas reales pueden utilizarlo y comprenderlo. | Administración mínima, manejo de errores, prueba piloto y registro de métricas. | Informe del piloto y lista priorizada de problemas. |
-| 5. Lanzamiento del MVP | Consolidar una versión demostrable y auditable. | Correcciones críticas, publicación, documentación técnica y hoja de ruta. | Repositorio, MVP publicado, demostración y plan de evolución. |
+- Completar prueba TypeScript con Stellar.
+- Comparar solución con y sin contrato.
+- Resolver OPEN-001 sobre arquitectura y registrar la decisión con el siguiente identificador disponible.
+- Seleccionar framework y estrategia de firma.
+- Crear el esqueleto mínimo del repositorio.
 
-## Forma de trabajo
+**Salida:** pruebas técnicas, decisiones registradas y entorno reproducible.
 
-- Cada tarea parte de un issue con criterios de aceptación.
-- Cada integrante trabaja en una rama propia o de funcionalidad.
-- Cada cambio se integra mediante pull request.
-- Al menos otra persona revisa antes de fusionar.
-- Los commits permiten identificar la contribución de cada integrante.
-- Los resultados técnicos y de producto se respaldan con evidencia reproducible.
+## Semana 2 — Reglas y dominio
 
-## Hitos
+- Modelar elección, opciones, participantes y estados.
+- Implementar las reglas según la arquitectura elegida.
+- Crear pruebas de autorización y unicidad.
+- Definir errores de dominio.
 
-1. **Definición del problema:** contexto, persona, recorrido, fricción, oportunidad, hipótesis y supuestos.
-2. **Definición del producto:** alcance, flujos, reglas y criterios de aceptación.
-3. **Prueba funcional:** contrato y flujo real en Testnet.
-4. **MVP validado:** piloto, métricas y aprendizajes.
-5. **Versión demostrable:** repositorio, despliegue, documentación y hoja de ruta.
+**Salida:** núcleo de reglas probado.
 
-## Criterio de avance
+## Semana 3 — Flujo completo
 
-Un hito se considera completo cuando su resultado puede revisarse, reproducirse y relacionarse con evidencia. La cantidad de código no se utiliza como medida principal de progreso.
+- Integrar interfaz, firma, envío y consulta.
+- Implementar configuración, apertura, voto, cierre y resultados.
+- Asociar evidencia de Stellar a cada operación.
+
+**Salida:** flujo funcional de extremo a extremo.
+
+## Semana 4 — Calidad y verificación
+
+- Ejecutar pruebas de aceptación.
+- Revisar seguridad, privacidad y accesibilidad.
+- Ejecutar verificación independiente.
+- Corregir errores críticos.
+
+**Salida:** informe de calidad y matriz de pruebas.
+
+## Semana 5 — Publicación educativa
+
+- Automatizar despliegue de prueba.
+- Completar guías.
+- Preparar datos ficticios.
+- Ejecutar la demostración.
+- Documentar resultados y decisiones posteriores.
+
+**Salida:** MVP desplegado, evidencia, documentación y demostración reproducible.
+
+## Flujo de trabajo
+
+- Issue con alcance y criterios.
+- Rama por cambio.
+- Pull request.
+- Revisión de una segunda persona.
+- Pruebas antes de fusionar.
+- Actualización de trazabilidad.
+- Commits identificables por integrante.
+
+## Control de alcance
+
+Una funcionalidad entra al MVP solo si:
+
+- Corresponde a un requisito prioritario.
+- Tiene prueba de aceptación.
+- Puede completarse dentro del horizonte.
+- No introduce datos reales.
+- No contradice una decisión confirmada.
