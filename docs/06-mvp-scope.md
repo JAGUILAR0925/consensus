@@ -3,7 +3,7 @@
 **Estado:** propuesta acotada  
 **Última revisión:** septiembre de 2026  
 **Duración objetivo:** cinco semanas  
-**Equipo supuesto:** tres integrantes
+**Equipo:** cinco integrantes
 
 ## Objetivo del MVP
 

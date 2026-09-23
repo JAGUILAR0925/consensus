@@ -7,9 +7,9 @@
 
 ¿Consensus necesita una blockchain o podría resolver el problema adecuadamente con una base de datos centralizada y un proceso de auditoría?
 
-## Las tres señales
+## Criterios de evaluación
 
-| Señal de la sesión 1 | Presencia en el caso piloto | Observación |
+| Criterio | Presencia en el caso piloto | Observación |
 | --- | --- | --- |
 | Varias partes que no confían plenamente entre sí necesitan el mismo registro. | Parcial | Comité, candidatos, votantes y observadores necesitan una versión común del proceso. Debe validarse el nivel real de desconfianza. |
 | El histórico no debe alterarse ni siquiera por quien administra. | Sí, como requisito propuesto | Reglas, apertura, cierre y conteo deberían dejar evidencia permanente. |

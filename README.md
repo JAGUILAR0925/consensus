@@ -2,7 +2,7 @@
 
 Plataforma open source para crear decisiones y votaciones comunitarias verificables con Stellar y Soroban.
 
-> **Estado:** descubrimiento y validación del problema. Aún no es un sistema apto para elecciones reales.
+> **Estado:** descubrimiento y validación. La versión actual es un MVP experimental y no debe utilizarse en elecciones vinculantes.
 
 ## Visión
 
@@ -10,11 +10,11 @@ Consensus busca que una comunidad pueda comprobar las reglas, la participación 
 
 El producto se plantea como una solución reutilizable para comunidades, universidades, fundaciones, colectivos, equipos y organizaciones. El primer caso piloto será una elección simulada de representantes estudiantiles.
 
-## Primera hipótesis de producto
+## Hipótesis de producto
 
 Si las reglas y el conteo de una votación quedan registrados en un contrato inteligente, entonces participantes, candidatos y observadores podrán verificar el resultado de manera independiente y aumentará su confianza en el proceso.
 
-Esta hipótesis todavía debe validarse con usuarios. Blockchain es una posible solución, no el punto de partida del problema.
+Esta hipótesis debe validarse con usuarios. Blockchain es una posible solución, no el punto de partida del problema.
 
 ## Alcance inicial
 
@@ -31,7 +31,7 @@ Consulta el [alcance completo del MVP](docs/06-mvp-scope.md).
 
 ## Documentación del proyecto
 
-La información se organiza siguiendo el método trabajado en la sesión 1: problema, persona, recorrido, fricción, oportunidad, hipótesis y supuestos.
+La documentación separa el contexto de negocio, la evidencia de producto, el alcance funcional y las decisiones técnicas.
 
 | Documento | Pregunta que responde |
 | --- | --- |
@@ -44,7 +44,7 @@ La información se organiza siguiendo el método trabajado en la sesión 1: prob
 | [Alcance del MVP](docs/06-mvp-scope.md) | ¿Qué se construirá y qué quedará fuera? |
 | [Plan de validación](docs/07-validation-plan.md) | ¿Cómo comprobaremos los supuestos? |
 | [Enfoque técnico](docs/08-technical-approach.md) | ¿Cómo podría implementarse el MVP? |
-| [Plan de entrega](docs/09-delivery-plan.md) | ¿Qué entregaremos durante las cinco semanas? |
+| [Plan de entrega](docs/09-delivery-plan.md) | ¿Cómo se organiza la ejecución? |
 | [Riesgos y hoja de ruta](docs/10-risks-and-roadmap.md) | ¿Qué puede fallar y qué viene después? |
 
 ## Seguridad y privacidad
@@ -69,4 +69,4 @@ Las decisiones técnicas siguen siendo provisionales hasta quedar registradas y 
 
 ## Equipo
 
-Proyecto desarrollado por un equipo de tres integrantes durante un programa de construcción blockchain de cinco semanas.
+Consensus es desarrollado por un equipo de cinco integrantes con responsabilidades distribuidas entre producto, contratos inteligentes, integración blockchain, frontend, calidad y documentación.

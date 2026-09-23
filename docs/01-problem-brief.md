@@ -46,7 +46,7 @@ Estas afirmaciones todavía no son hechos.
 
 ## Evidencia disponible
 
-No existe evidencia primaria documentada todavía. La propuesta adjunta y el material del curso son antecedentes conceptuales, no validación del problema.
+No existe evidencia primaria documentada todavía. La propuesta inicial constituye un antecedente conceptual, no una validación del problema.
 
 ## Preguntas abiertas
 
