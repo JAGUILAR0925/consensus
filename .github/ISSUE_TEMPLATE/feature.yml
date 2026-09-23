@@ -1,0 +1,45 @@
+name: Propuesta o tarea
+description: Proponer una funcionalidad, investigación o mejora
+title: "[Propuesta]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe el resultado esperado antes de pensar en su implementación.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema u oportunidad
+      description: ¿Qué necesidad queremos resolver?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Explica la solución o el trabajo sugerido.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Valor para el usuario
+      description: ¿Quién se beneficia y de qué manera?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      description: Escribe una lista de condiciones verificables.
+      placeholder: |
+        - [ ] Criterio 1
+        - [ ] Criterio 2
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencias o bloqueos
+      description: Incluye decisiones, tareas o recursos relacionados.
