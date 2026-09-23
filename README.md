@@ -1,97 +1,72 @@
 # Consensus
 
-Plataforma de votaciones comunitarias verificables construida sobre Stellar y Soroban.
+Plataforma open source para crear decisiones y votaciones comunitarias verificables con Stellar y Soroban.
 
-## La propuesta
+> **Estado:** descubrimiento y validación del problema. Aún no es un sistema apto para elecciones reales.
 
-Muchas comunidades, universidades, equipos, fundaciones, colectivos y organizaciones necesitan tomar decisiones mediante votaciones. Sin embargo, normalmente deben confiar en una sola persona o plataforma para registrar los votos, realizar el conteo, publicar los resultados y conservar el historial.
+## Visión
 
-**Consensus** propone un sistema reutilizable de votaciones en el que las reglas, los votos y los resultados relevantes puedan verificarse de forma independiente. La meta no es utilizar blockchain por moda, sino aplicarla donde aporte transparencia, trazabilidad e integridad al proceso de decisión.
+Consensus busca que una comunidad pueda comprobar las reglas, la participación y el resultado de una votación sin depender únicamente de la organización que la administra.
 
-## Problema
+El producto se plantea como una solución reutilizable para comunidades, universidades, fundaciones, colectivos, equipos y organizaciones. El primer caso piloto será una elección simulada de representantes estudiantiles.
 
-En una votación administrada de forma centralizada:
+## Primera hipótesis de producto
 
-- La comunidad depende de quien controla el sistema.
-- Los participantes no pueden comprobar fácilmente que su voto fue incluido.
-- El historial y los resultados podrían modificarse sin dejar evidencia.
-- La confianza se concentra en un intermediario.
-- Diferentes organizaciones terminan construyendo soluciones aisladas para necesidades similares.
+Si las reglas y el conteo de una votación quedan registrados en un contrato inteligente, entonces participantes, candidatos y observadores podrán verificar el resultado de manera independiente y aumentará su confianza en el proceso.
 
-## Solución propuesta
+Esta hipótesis todavía debe validarse con usuarios. Blockchain es una posible solución, no el punto de partida del problema.
 
-Consensus permitirá crear y participar en votaciones configurables para distintos tipos de comunidades. Cada proceso tendrá reglas claras, un periodo definido y resultados verificables.
+## Alcance inicial
 
-La blockchain conservará únicamente la información que necesite ser pública y verificable. Los datos personales, perfiles, comunicaciones y demás información sensible permanecerán fuera de la cadena.
+El MVP propone una elección:
 
-## Usuarios potenciales
+- Ejecutada en Stellar Testnet.
+- Administrada mediante un contrato inteligente en Soroban.
+- Con votantes habilitados previamente.
+- Con un voto por dirección.
+- Con resultados y transacciones verificables.
+- Sin voto secreto en la primera versión.
 
-- Comunidades y colectivos.
-- Universidades y grupos estudiantiles.
-- Fundaciones y organizaciones sociales.
-- Equipos de trabajo.
-- Eventos y comunidades digitales.
-- Organizaciones autónomas descentralizadas (DAO).
+Consulta el [alcance completo del MVP](docs/06-mvp-scope.md).
 
-## MVP
+## Documentación del proyecto
 
-La primera versión busca demostrar el flujo principal:
+La información se organiza siguiendo el método trabajado en la sesión 1: problema, persona, recorrido, fricción, oportunidad, hipótesis y supuestos.
 
-1. Crear una votación con título, opciones y fechas.
-2. Definir qué cuentas o wallets pueden participar.
-3. Conectar una wallet compatible con Stellar.
-4. Registrar un único voto por wallet.
-5. Cerrar la votación según las reglas establecidas.
-6. Consultar el resultado y su evidencia verificable en Stellar Testnet.
+| Documento | Pregunta que responde |
+| --- | --- |
+| [Sistema documental](docs/README.md) | ¿Cómo organizamos hechos, hipótesis, decisiones y evidencia? |
+| [Problem brief](docs/01-problem-brief.md) | ¿Qué problema queremos validar? |
+| [Personas y actores](docs/02-people-and-actors.md) | ¿Quién sufre el problema y quién participa? |
+| [Recorrido y flujo de valor](docs/03-current-value-flow.md) | ¿Cómo ocurre hoy y dónde se pierde valor? |
+| [Oportunidad e hipótesis](docs/04-opportunity-and-hypothesis.md) | ¿Qué cambio esperamos producir? |
+| [Justificación de blockchain](docs/05-blockchain-fit.md) | ¿Por qué blockchain podría ser adecuada? |
+| [Alcance del MVP](docs/06-mvp-scope.md) | ¿Qué se construirá y qué quedará fuera? |
+| [Plan de validación](docs/07-validation-plan.md) | ¿Cómo comprobaremos los supuestos? |
+| [Enfoque técnico](docs/08-technical-approach.md) | ¿Cómo podría implementarse el MVP? |
+| [Plan de entrega](docs/09-delivery-plan.md) | ¿Qué entregaremos durante las cinco semanas? |
+| [Riesgos y hoja de ruta](docs/10-risks-and-roadmap.md) | ¿Qué puede fallar y qué viene después? |
 
-## Uso de blockchain
+## Seguridad y privacidad
 
-Consensus plantea utilizar:
+La primera versión ofrece verificabilidad, pero **no garantiza voto secreto**: una elección on-chain puede relacionar una dirección pública con una opción. Por esta razón, el piloto debe ser simulado o no vinculante hasta implementar y validar un mecanismo de privacidad adecuado.
 
-- **Stellar** como red blockchain.
-- **Soroban** para ejecutar contratos inteligentes.
-- **Rust/Wasm** para implementar las reglas del contrato.
-- **Stellar Testnet** durante el desarrollo y la validación inicial.
-
-El contrato inteligente será responsable de aplicar reglas como la vigencia de la votación, la elegibilidad de una wallet y la prevención de votos duplicados.
-
-## Información on-chain y off-chain
-
-### On-chain
-
-- Identificador de la votación.
-- Opciones o referencias verificables.
-- Fechas y estado del proceso.
-- Registro necesario para validar que una wallet votó.
-- Conteo o evidencia del resultado.
-
-### Off-chain
-
-- Datos personales.
-- Perfiles y autenticación convencional.
-- Descripciones extensas y contenido multimedia.
-- Notificaciones.
-- Información privada de las organizaciones.
-- Analítica que no necesite consenso público.
-
-## Principios del proyecto
-
-- Transparencia verificable.
-- Privacidad desde el diseño.
-- Reutilización en diferentes comunidades.
-- Reglas simples y comprensibles.
-- Código abierto.
-- Uso justificado de blockchain.
-- Desarrollo incremental y validación temprana.
-
-## Estado
-
-El proyecto se encuentra en etapa inicial de definición y validación. Este repositorio comenzará con la propuesta, las decisiones del equipo y la evidencia del avance. La arquitectura y el código se incorporarán cuando el alcance del MVP esté suficientemente claro.
+Nunca deben publicarse nombres, documentos de identidad, correos, claves privadas o frases de recuperación.
 
 ## Colaboración
 
-Las contribuciones se realizan mediante ramas y pull requests. Consulta [CONTRIBUTING.md](CONTRIBUTING.md) antes de comenzar una tarea.
+Revisa [CONTRIBUTING.md](CONTRIBUTING.md) antes de trabajar. Cada cambio debe partir de un issue, desarrollarse en una rama y revisarse mediante pull request.
+
+## Tecnología propuesta
+
+- Stellar Testnet.
+- Contratos inteligentes de Stellar (Soroban) con Rust.
+- Stellar CLI y pruebas del SDK de Soroban.
+- Aplicación web en React, Vite y TypeScript.
+- Freighter para firmar transacciones.
+
+Las decisiones técnicas siguen siendo provisionales hasta quedar registradas y aceptadas por el equipo.
 
 ## Equipo
 
-Proyecto desarrollado de forma colaborativa como parte de un proceso de aprendizaje y construcción de soluciones con blockchain.
+Proyecto desarrollado por un equipo de tres integrantes durante un programa de construcción blockchain de cinco semanas.
