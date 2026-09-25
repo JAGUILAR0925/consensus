@@ -1,0 +1,15 @@
+target/
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+terraform/.terraform/
+terraform/*.tfstate*
+terraform/.terraform.lock.hcl
+keys/
+secrets/
+docs/evidence/*.json

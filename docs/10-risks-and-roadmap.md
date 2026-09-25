@@ -21,6 +21,9 @@
 | R-012 | Crecimiento de alcance. | Alta | Alto | Requisitos prioritarios y control de cambios. |
 | R-013 | Resultado difícil de verificar para terceros. | Media | Alto | Guía independiente y EXP-004. |
 | R-014 | Documentación desactualizada. | Media | Medio | Trazabilidad obligatoria en PR. |
+| R-015 | Tratar AMB como si fuera una red Stellar o asumir gratuidad estudiantil. | Media | Alto | Usar AWS solo para auxiliares, Budgets y verificación de créditos antes de desplegar. |
+| R-016 | Biometría o cifrado homomórfico amplían el alcance y exponen datos sensibles. | Alta | Alto | Datos sintéticos en MVP; investigación separada y revisión legal/privacidad. |
+| R-017 | Kubernetes/Nginx añaden complejidad sin beneficio medido. | Alta | Medio | Mantener despliegue estático/serverless hasta tener métricas de carga. |
 
 ## Limitaciones aceptadas
 

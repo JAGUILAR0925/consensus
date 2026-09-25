@@ -17,6 +17,14 @@
 
 ## Decisiones abiertas
 
+### DEC-009 — Arquitectura objetivo del MVP (propuesta)
+
+Soroban/Rust para las reglas en cadena, TypeScript para cliente e integración, y Python/FastAPI solo para servicios off-chain opcionales. Se mantiene como propuesta hasta completar EXP-002 y la revisión de seguridad. La biometría y el cifrado homomórfico no forman parte del MVP.
+
+### DEC-010 — Entorno de desarrollo y costes (propuesta)
+
+Stellar Quickstart local + Stellar CLI + `simulateTransaction` para aprendizaje y medición de recursos; Testnet para la demostración. AWS solo hospeda componentes auxiliares y se controla con Budgets. Amazon Managed Blockchain no se usará como nodo Stellar.
+
 ### OPEN-001 — Modelo de ejecución de reglas
 
 **Opciones:** operaciones nativas de Stellar o contrato inteligente.

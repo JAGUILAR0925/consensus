@@ -1,7 +1,7 @@
 # 09. Plan de ejecución
 
 **Estado:** definido  
-**Horizonte inicial:** cinco semanas  
+**Horizonte inicial:** seis semanas  
 **Equipo:** cinco integrantes
 
 ## Frentes
@@ -54,13 +54,24 @@ Los frentes no fijan la tecnología pendiente. Cada integrante debe contribuir m
 
 ## Semana 5 — Publicación educativa
 
+El detalle actualizado de seis semanas, incluyendo el spike opcional de Python/2FA y medición de recursos Soroban, está en [16-implementation-plan.md](16-implementation-plan.md).
+
 - Automatizar despliegue de prueba.
 - Completar guías.
 - Preparar datos ficticios.
-- Ejecutar la demostración.
+- Ejecutar la demostración local.
 - Documentar resultados y decisiones posteriores.
 
-**Salida:** MVP desplegado, evidencia, documentación y demostración reproducible.
+**Salida:** documentación y demostración reproducible.
+
+## Semana 6 — Testnet y cierre reproducible
+
+- Ejecutar la demo en Testnet con datos ficticios.
+- Registrar costes observados, recursos simulados y evidencia.
+- Revisar accesibilidad, seguridad y destrucción de recursos auxiliares.
+- Cerrar la matriz de aceptación y preparar la presentación.
+
+**Salida:** MVP verificable y guía de reproducción.
 
 ## Flujo de trabajo
 

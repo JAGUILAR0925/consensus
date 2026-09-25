@@ -1,0 +1,21 @@
+services:
+  stellar:
+    image: stellar/quickstart:latest
+    command: ["--local", "--enable", "stellar-rpc,horizon"]
+    ports:
+      - "8000:8000"
+    profiles: [stellar]
+
+  backend:
+    build: ./backend
+    environment:
+      RUST_LOG: info
+      BIOMETRIC_API_URL: http://biometric:8001
+    ports:
+      - "8080:8080"
+    depends_on: [biometric]
+
+  biometric:
+    build: ./encryption/biometric
+    ports:
+      - "8001:8001"

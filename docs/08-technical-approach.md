@@ -1,6 +1,6 @@
 # 08. Enfoque técnico
 
-**Estado:** restricciones confirmadas; arquitectura en evaluación  
+**Estado:** arquitectura propuesta para spike; pendiente de validación ejecutable  
 **Última revisión:** septiembre de 2026
 
 ## Tecnologías confirmadas
@@ -12,6 +12,8 @@
 | Entorno inicial | Testnet o entorno equivalente de pruebas |
 | Datos | Exclusivamente ficticios |
 | Repositorio | Repositorio público |
+
+La propuesta concreta y el orden de implementación están en [16-implementation-plan.md](16-implementation-plan.md). Hasta aprobar el spike, Rust/Soroban, Python y AWS no deben tratarse como decisiones cerradas.
 
 ## Arquitectura lógica
 
@@ -29,7 +31,7 @@ La solución se divide en responsabilidades, independientemente del framework:
 
 ### ¿Dónde se ejecutarán las reglas?
 
-#### Opción A: contrato inteligente
+#### Opción A: contrato inteligente (propuesta para el MVP)
 
 Ventajas:
 
@@ -44,7 +46,7 @@ Consideraciones:
 - TypeScript seguiría utilizándose como cliente e integración.
 - Introduce una curva adicional de aprendizaje.
 
-#### Opción B: operaciones nativas y lógica TypeScript
+#### Opción B: operaciones nativas y lógica TypeScript (plan de contingencia)
 
 Ventajas:
 
@@ -60,7 +62,7 @@ Consideraciones:
 
 ## Lenguaje de contrato
 
-Rust **no está seleccionado todavía**.
+Rust queda propuesto para el spike del contrato; la selección se confirma solo después de ejecutar EXP-002.
 
 Si el equipo decide construir un contrato, debe considerar que:
 

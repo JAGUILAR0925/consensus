@@ -63,6 +63,7 @@ Esta carpeta contiene la especificación completa de la fase de definición del 
 13. [Decisiones](13-decision-log.md)
 14. [Glosario](14-glossary.md)
 15. [Trazabilidad](15-traceability.md)
+16. [Plan técnico de implementación](16-implementation-plan.md)
 
 ## Reglas de actualización
 
