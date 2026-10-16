@@ -13,3 +13,5 @@ terraform/.terraform.lock.hcl
 keys/
 secrets/
 docs/evidence/*.json
+
+video/out/
